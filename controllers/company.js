@@ -1,6 +1,39 @@
-exports.test = (req, res) => { 
-    res.json("WELCOME TO COMPANY API!")
+const company = require('../models/company')
+const event = require('../models/event')
+const booking = require('../models/booking')
+const vendor = require('../models/vendor')
+const bcrypt = require('bcrypt')
+
+exports.test = (req, res) => {
+	res.json("WELCOME TO COMPANY API!")
 }
+
+exports.registration = (req, res) => {
+	let hash = bcrypt.hashSync(req.body.password, parseInt(process.env.BCRYPT_SALT))
+	let Company = company({
+		email: req.body.email,
+		password: hash,
+		name: req.body.name,
+		address: {
+			postalCode: req.body.postalCode,
+			streetName: req.body.streetName
+		}
+	})
+	Company.save((err) => {
+		if (err) {
+			res.status(500).json({
+				success: false,
+				message: err.message
+			})
+		} else {
+			res.status(201).json({
+				success: true,
+				message: 'Registration Success'
+			})
+		}
+	})
+}
+
 
 exports.login = (req, res) => { }
 
