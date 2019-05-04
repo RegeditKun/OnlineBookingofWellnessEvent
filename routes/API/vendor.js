@@ -3,14 +3,14 @@ const router = express.Router()
 const vendorControllers = require('../../controllers/vendor')
 const auth = require('../../middleware/auth')
 
-router.get('/test', vendorControllers.test)
+router.get('/test', auth.authVendor, vendorControllers.test)
 
-router.post('/login', vendorControllers.login)
+router.post('/registration', vendorControllers.registration)
 
-router.get('/event', auth.authCompany, vendorControllers.showEvent)
+router.get('/event', auth.authVendor, vendorControllers.showEvent)
 
-router.put('/accept', auth.authCompany, vendorControllers.acceptEvent)
+router.put('/accept', auth.authVendor, vendorControllers.acceptEvent)
 
-router.put('/reject', auth.authCompany, vendorControllers.rejectEvent)
+router.put('/reject', auth.authVendor, vendorControllers.rejectEvent)
 
 module.exports = router

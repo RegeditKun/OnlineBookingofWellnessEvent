@@ -3,9 +3,9 @@ const router = express.Router()
 const companyControllers = require('../../controllers/company')
 const auth = require('../../middleware/auth')
 
-router.get('/test', companyControllers.test)
+router.get('/test', auth.authCompany, companyControllers.test)
 
-router.post('/login', companyControllers.login)
+router.post('/registration', companyControllers.registration)
 
 router.route('/event')
 	.post(auth.authCompany, companyControllers.createEvent)
