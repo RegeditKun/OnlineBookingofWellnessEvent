@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
+require('dotenv').config()
 
 // Cors
 app.use(cors())
@@ -24,7 +25,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error'))
 
 // Routes
 const index = require('./routes/index')
-app.use('/', index)
+app.use('/v1', index)
 
 // Port
 const PORT = process.env.PORT || 8080
