@@ -4,9 +4,11 @@ const Schema = mongoose.Schema
 let eventSchema = new Schema({
 	name: {
 		type: String,
-		required: true
+		required: true,
+		minlength: 5,
+    maxLength: 50
 	},
-	vendor:{ type: Schema.Types.ObjectId, ref: 'Vendor' }, //idVendor
+	idVendor:{ type: Schema.Types.ObjectId, ref: 'Vendor' }, //idVendor
 	},
 	{
 		timestamps: true

@@ -20,8 +20,7 @@ let vendorSchema = new Schema({
 	address: {
 		postalCode: { type: String, default: '' },
 		streetName: { type: String, default: '' }
-	},
-	event:[{ type: Schema.Types.ObjectId, ref: 'Event' }], //idEvent
+	}
 	},
 	{
 		timestamps: true
