@@ -6,7 +6,7 @@ exports.authCompany = (req, res, next) => {
     if (err) {
       return res.status(400).json({ status: false, message: err.message })
     } else {
-      req.userCompany = decoded
+      req.company = decoded
       next()
     }
   })
@@ -18,7 +18,7 @@ exports.authVendor = (req, res, next) => {
     if (err) {
       return res.status(400).json({ status: false, message: err.message })
     } else {
-      req.userVendor = decoded
+      req.vendor = decoded
       next()
     }
   })
