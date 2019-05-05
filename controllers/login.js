@@ -20,7 +20,7 @@ exports.login = (req, res) => {
 							bcrypt.compare(req.body.password, companyDetail.password)
 								.then(valid => {
 									if (valid) {
-										let dataToken = { id: companyDetail._id, name: companyDetail.name, role: 'company' }
+										let dataToken = { id: companyDetail._id, name: companyDetail.name, address: companyDetail.address, role: 'company' }
 										let token = jwt.sign(dataToken, process.env.SECRETKEY, { expiresIn: '7d', algorithm: 'HS256' })
 										return res.status(200).json({
 											success: true,
@@ -44,28 +44,28 @@ exports.login = (req, res) => {
 					})
 			} else {
 				bcrypt.compare(req.body.password, vendorDetail.password)
-				.then(valid => {
-					if (valid) {
-						let dataToken = { id: vendorDetail._id, name: vendorDetail.name, role: 'vendor' }
-						let token = jwt.sign(dataToken, process.env.SECRETKEY, { expiresIn: '7d', algorithm: 'HS256' })
-						return res.status(200).json({
-							success: true,
-							message: 'Vendor found!',
-							token: token
-						})
-					} else {
-						return res.status(400).json({
-							success: false,
-							message: 'Password incorrect!'
-						})
-					}
-				})
-				.catch(err => {
-					res.status(500).json({
-						success: false,
-						message: err.message
+					.then(valid => {
+						if (valid) {
+							let dataToken = { id: vendorDetail._id, name: vendorDetail.name, role: 'vendor' }
+							let token = jwt.sign(dataToken, process.env.SECRETKEY, { expiresIn: '7d', algorithm: 'HS256' })
+							return res.status(200).json({
+								success: true,
+								message: 'Vendor found!',
+								token: token
+							})
+						} else {
+							return res.status(400).json({
+								success: false,
+								message: 'Password incorrect!'
+							})
+						}
 					})
-				})
+					.catch(err => {
+						res.status(500).json({
+							success: false,
+							message: err.message
+						})
+					})
 			}
 		})
 }
