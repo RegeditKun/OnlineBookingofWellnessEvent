@@ -56,8 +56,8 @@
  * @apiParam {String} confirmedDate if status 'Approved', choose Confirmation Date. (Body)
  * @apiParam {String} remarks if status 'Rejected', send remarks. (Body)
  * @apiSuccess {Boolean} success Success status.
- * @apiSuccess {String} message The booked event has been approved/rejected.
- * @apiSuccess {Object} data Display data that has just been approved/rejected.
+ * @apiSuccess {String} message Show all booking list.
+ * @apiSuccess {Object[]} data Display booking list with list that has been approved/rejected.
  */
 
  /**
