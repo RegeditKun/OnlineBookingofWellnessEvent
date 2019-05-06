@@ -152,6 +152,7 @@ exports.deleteEvent = (req, res) => {
 
 exports.showBooking = (req, res) => {
   booking.find()
+    .populate('idCompany', 'name')
     .populate({
       path: 'idEvent',
       select: 'name',
