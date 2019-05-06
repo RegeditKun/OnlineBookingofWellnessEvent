@@ -4,7 +4,8 @@ This application aims to make it easier for the companies to facilitate online b
 
 ## Entity-Relationship Diagram (ERD)
 For this application, you can see the ERD of this application in here:
-* [ERD](https://res.cloudinary.com/palsuasli/image/upload/v1557152183/Project/erdplus-diagram.png)
+
+- [ERD](https://res.cloudinary.com/palsuasli/image/upload/v1557152183/Project/erdplus-diagram.png)
 
 ## Prerequisites
 
@@ -45,9 +46,11 @@ npm run dev
 ## Deployment
 
 This application is deployed in:
-* [Heroku](https://wellness-event-api.herokuapp.com/)
+
+- [Heroku](https://wellness-event-api.herokuapp.com/)
 
 ## Documentation
 
 You can check the documentation in here:
-* [Documentation](https://wellness-event-api.herokuapp.com/apidoc/)
+
+- [Documentation](https://wellness-event-api.herokuapp.com/apidoc/)
