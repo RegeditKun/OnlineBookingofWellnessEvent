@@ -1,28 +1,42 @@
-/* eslint-disable consistent-return */
 const jwt = require('jsonwebtoken')
 
-exports.authCompany = (req, res, next) => {
-  const token = req.headers.auth
-  jwt.verify(token, process.env.SECRETKEY, (err, decoded) => {
-    if (err) {
-      return res.status(400).json({ status: false, message: err.message })
-    }
-    req.company = decoded
-    if (req.company.role === 'company') {
+module.exports = {
+  isAuth: (req, res, next) => {
+    try {
+      const token = req.headers['auth']
+      let decoded = jwt.verify(token, process.env.SECRETKEY)
+      req.user = decoded
       next()
+    } catch (err) {
+      res.status(401).json({
+        success: false, message: 'Token is Invalid' + ', ' + err.message
+      })
     }
-  })
-}
-
-exports.authVendor = (req, res, next) => {
-  const token = req.headers.auth
-  jwt.verify(token, process.env.SECRETKEY, (err, decoded) => {
-    if (err) {
-      return res.status(400).json({ status: false, message: err.message })
+  },
+  isVendor: (req, res, next) => {
+    try {
+      if (req.user.role === 'vendor') {
+        next()
+      } else {
+        res.status(403).json({ message: 'Your Username is not Authorized' })
+      }
+    } catch (err) {
+      res.status(401).json({
+        success: false, message: 'Token is invalid' + ', ' + err.message
+      })
     }
-    req.vendor = decoded
-    if (req.vendor.role === 'vendor') {
-      next()
+  },
+  isCompany: (req, res, next) => {
+    try {
+      if (req.user.role === 'company') {
+        next()
+      } else {
+        res.status(403).json({ message: 'Your Username is not Authorized' })
+      }
+    } catch (err) {
+      res.status(401).json({
+        message: 'Token is invalid' + ', ' + err.message
+      })
     }
-  })
+  }
 }
