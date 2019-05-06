@@ -5,7 +5,7 @@ const auth = require('../../middleware/auth')
 
 router.post('/registration', vendorControllers.registration)
 
-router.route('/event')
+router.route('/event/:vendorid')
   .post(auth.authVendor, vendorControllers.createEvent)
   .get(auth.authVendor, vendorControllers.showEvent)
 
