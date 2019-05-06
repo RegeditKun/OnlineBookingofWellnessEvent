@@ -158,7 +158,7 @@ exports.showBooking = (req, res) => {
       match: { idVendor: req.vendor.id },
       populate: { path: 'idVendor', select: 'name' }
     })
-    .select('-createdAt -updatedAt -__v')
+    .select('-updatedAt -__v')
     .exec()
     .then(showList => {
       if (showList.length === 0) {
