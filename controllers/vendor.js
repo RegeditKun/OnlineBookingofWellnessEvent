@@ -200,22 +200,56 @@ exports.accRejectBooking = (req, res) => {
             { status: 'Rejected', remarks: req.body.remarks, responseDate: Date.now() },
             { new: true })
             .then(updateBooking => {
-              return res.status(200).json({
-                success: true,
-                message: 'The booked event has been rejected',
-                data: updateBooking
-              })
+              if (updateBooking) {
+                booking.find()
+                  .populate('idCompany', 'name')
+                  .populate({
+                    path: 'idEvent',
+                    select: 'name',
+                    match: { idVendor: req.vendor.id },
+                    populate: { path: 'idVendor', select: 'name' }
+                  })
+                  .select('-updatedAt -__v')
+                  .exec()
+                  .then(showList => {
+                    showList = showList.filter(filterdList => {
+                      return filterdList.idEvent
+                    })
+                    return res.status(200).json({
+                      success: true,
+                      message: `Show all booking list`,
+                      data: showList
+                    })
+                  })
+              }
             })
         } else if (req.body.status === 'Approved') {
           booking.findByIdAndUpdate(Booked.id,
             { status: 'Approved', confirmedDate: req.body.confirmedDate, responseDate: Date.now() },
             { new: true })
             .then(updateBooking => {
-              return res.status(200).json({
-                success: true,
-                message: 'The booked event has been approved',
-                data: updateBooking
-              })
+              if (updateBooking) {
+                booking.find()
+                  .populate('idCompany', 'name')
+                  .populate({
+                    path: 'idEvent',
+                    select: 'name',
+                    match: { idVendor: req.vendor.id },
+                    populate: { path: 'idVendor', select: 'name' }
+                  })
+                  .select('-updatedAt -__v')
+                  .exec()
+                  .then(showList => {
+                    showList = showList.filter(filterdList => {
+                      return filterdList.idEvent
+                    })
+                    return res.status(200).json({
+                      success: true,
+                      message: `Show all booking list`,
+                      data: showList
+                    })
+                  })
+              }
             })
         } else {
           return res.status(404).json({
