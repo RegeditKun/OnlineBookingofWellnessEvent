@@ -73,7 +73,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "routes/API/company.js",
+    "filename": "routes/apidoc.js",
     "groupTitle": "Company"
   },
   {
@@ -123,7 +123,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "routes/API/company.js",
+    "filename": "routes/apidoc.js",
     "groupTitle": "Company"
   },
   {
@@ -173,7 +173,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "routes/API/company.js",
+    "filename": "routes/apidoc.js",
     "groupTitle": "Company"
   },
   {
@@ -237,27 +237,27 @@
             "type": "Boolean",
             "optional": false,
             "field": "success",
-            "description": "<p>Success status.</p>"
+            "description": "<p>Success status.aaaaaaaaaa</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "message",
-            "description": "<p>The booked event has been approved/rejected.</p>"
+            "description": "<p>Show all booking list.</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "Object[]",
             "optional": false,
             "field": "data",
-            "description": "<p>Display data that has just been approved/rejected.</p>"
+            "description": "<p>Display booking list with list that has been approved/rejected.</p>"
           }
         ]
       }
     },
     "version": "0.0.0",
-    "filename": "routes/API/vendor.js",
+    "filename": "routes/apidoc.js",
     "groupTitle": "Vendor"
   },
   {
@@ -320,7 +320,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "routes/API/vendor.js",
+    "filename": "routes/apidoc.js",
     "groupTitle": "Vendor"
   },
   {
@@ -383,7 +383,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "routes/API/vendor.js",
+    "filename": "routes/apidoc.js",
     "groupTitle": "Vendor"
   },
   {
@@ -433,7 +433,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "routes/API/vendor.js",
+    "filename": "routes/apidoc.js",
     "groupTitle": "Vendor"
   },
   {
@@ -483,7 +483,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "routes/API/vendor.js",
+    "filename": "routes/apidoc.js",
     "groupTitle": "Vendor"
   },
   {
@@ -546,7 +546,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "routes/API/vendor.js",
+    "filename": "routes/apidoc.js",
     "groupTitle": "Vendor"
   }
 ]
