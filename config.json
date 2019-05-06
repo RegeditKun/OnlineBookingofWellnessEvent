@@ -1,0 +1,6 @@
+{
+  "MONGO_STRINGCON": "mongodb://regedit:akuorang@cluster0-shard-00-00-zl7qg.mongodb.net:27017,cluster0-shard-00-01-zl7qg.mongodb.net:27017,cluster0-shard-00-02-zl7qg.mongodb.net:27017/database?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true",
+  "BCRYPT_SALT":10,
+  "SECRETKEY":"4ku4d4l4h4n4kg3mb4l4",
+  "PORT":8080
+}
