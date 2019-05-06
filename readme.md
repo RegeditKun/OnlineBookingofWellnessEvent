@@ -34,6 +34,17 @@ npm run start
 or
 npm run dev
 ```
+## Documentation
+
+You can check the documentation in here:
+
+- [Documentation](https://wellness-event-api.herokuapp.com/apidoc/)
+
+## Deployment
+
+This application is deployed in:
+
+- [Heroku](https://wellness-event-api.herokuapp.com/)
 
 ## Built With
 * [express](https://www.express.com/) - Framework
@@ -42,18 +53,6 @@ npm run dev
 * [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) - Authorization
 * [eslint](https://www.npmjs.com/package/eslint) - Eslinting
 * [apidoc](http://apidocjs.com/) - Documentation
-
-## Deployment
-
-This application is deployed in:
-
-- [Heroku](https://wellness-event-api.herokuapp.com/)
-
-## Documentation
-
-You can check the documentation in here:
-
-- [Documentation](https://wellness-event-api.herokuapp.com/apidoc/)
 
 ## License
  
