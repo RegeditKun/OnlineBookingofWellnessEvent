@@ -35,14 +35,14 @@ exports.createBooking = (req, res) => {
         })
       } else {
         booking.create({
-          idCompany: req.company.id,
+          idCompany: req.user.id,
           idEvent: eventBooking._id,
           location: req.body.location,
           date: req.body.date
         })
           .then(newBooking => {
             if (newBooking) {
-              booking.find({ idCompany: req.company.id })
+              booking.find({ idCompany: req.user.id })
                 .populate({
                   path: 'idEvent', select: 'name', populate: { path: 'idVendor', select: 'name' }
                 })
@@ -79,7 +79,7 @@ exports.createBooking = (req, res) => {
 }
 
 exports.showBooking = (req, res) => {
-  booking.find({ idCompany: req.company.id })
+  booking.find({ idCompany: req.user.id })
     .populate({
       path: 'idEvent idCompany', select: 'name', populate: { path: 'idVendor', select: 'name' }
     })
