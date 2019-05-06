@@ -16,10 +16,6 @@ let companySchema = new Schema({
     type: String,
     required: true,
     unique: true
-  },
-  address: {
-    postalCode: { type: String, default: '' },
-    streetName: { type: String, default: '' }
   }
 },
 {
