@@ -4,21 +4,12 @@ const booking = require('../models/booking')
 const vendor = require('../models/vendor')
 const bcrypt = require('bcrypt')
 
-exports.test = (req, res) => {
-  res.json('WELCOME TO VENDOR API!')
-}
-
 exports.registration = (req, res) => {
   let hash = bcrypt.hashSync(req.body.password, parseInt(process.env.BCRYPT_SALT))
   let Vendor = vendor({
-
     email: req.body.email,
     password: hash,
-    name: req.body.name,
-    address: {
-      postalCode: req.body.postalCode,
-      streetName: req.body.streetName
-    }
+    name: req.body.name
   })
   Vendor.save((err) => {
     if (err) {
@@ -205,7 +196,7 @@ exports.accRejectBooking = (req, res) => {
       } else {
         if (req.body.status === 'Rejected') {
           booking.findByIdAndUpdate(Booked.id,
-            { status: 'Rejected', remarks: req.body.remarks },
+            { status: 'Rejected', remarks: req.body.remarks, responseDate: Date.now() },
             { new: true })
             .then(updateBooking => {
               return res.status(200).json({
@@ -216,12 +207,12 @@ exports.accRejectBooking = (req, res) => {
             })
         } else if (req.body.status === 'Approved') {
           booking.findByIdAndUpdate(Booked.id,
-            { status: 'Approved', confirmedDate: req.body.confirmedDate },
+            { status: 'Approved', confirmedDate: req.body.confirmedDate, responseDate: Date.now() },
             { new: true })
             .then(updateBooking => {
               return res.status(200).json({
                 success: true,
-                message: 'The booked event has been accepted',
+                message: 'The booked event has been approved',
                 data: updateBooking
               })
             })
