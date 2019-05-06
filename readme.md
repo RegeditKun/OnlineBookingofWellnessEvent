@@ -5,7 +5,7 @@ This application aims to make it easier for the companies to facilitate online b
 ## Entity-Relationship Diagram (ERD)
 For this application, you can see the ERD of this application in here:
 
-- [ERD](https://res.cloudinary.com/palsuasli/image/upload/v1557152183/Project/erdplus-diagram.png)
+- [ERD](https://res.cloudinary.com/palsuasli/image/upload/v1557153892/Project/erdplus-diagram.png)
 
 ## Prerequisites
 
