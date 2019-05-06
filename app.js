@@ -26,6 +26,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error'))
 // Routes
 const index = require('./routes/index')
 app.use('/v1', index)
+app.use(express.static('doc'))
 
 // Port
 const PORT = process.env.PORT || 8080
