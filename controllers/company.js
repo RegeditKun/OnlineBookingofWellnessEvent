@@ -80,6 +80,9 @@ exports.createBooking = (req, res) => {
 
 exports.showBooking = (req, res) => {
   booking.find({ idCompany: req.company.id })
+    .populate({
+      path: 'idEvent idCompany', select: 'name', populate: { path: 'idVendor', select: 'name' }
+    })
     .select('-createdAt -updatedAt -__v -_id')
     .exec()
     .then(booked => {
