@@ -4,20 +4,12 @@ const booking = require('../models/booking')
 const vendor = require('../models/vendor')
 const bcrypt = require('bcrypt')
 
-exports.test = (req, res) => {
-  res.json('WELCOME TO COMPANY API!')
-}
-
 exports.registration = (req, res) => {
   let hash = bcrypt.hashSync(req.body.password, parseInt(process.env.BCRYPT_SALT))
   let Company = company({
     email: req.body.email,
     password: hash,
-    name: req.body.name,
-    address: {
-      postalCode: req.body.postalCode,
-      streetName: req.body.streetName
-    }
+    name: req.body.name
   })
   Company.save((err) => {
     if (err) {
@@ -35,7 +27,7 @@ exports.registration = (req, res) => {
 }
 
 exports.createBooking = (req, res) => {
-  event.findById(req.params.id)
+  event.findById(req.body.id)
     .then(eventBooking => {
       if (!eventBooking) {
         res.status(404).json({
@@ -46,7 +38,7 @@ exports.createBooking = (req, res) => {
         booking.create({
           idCompany: req.company.id,
           idEvent: eventBooking._id,
-          location: req.company.address,
+          location: req.body.location,
           date: req.body.date
         })
           .then(newBooking => {
