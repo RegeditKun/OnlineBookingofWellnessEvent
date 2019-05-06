@@ -29,11 +29,11 @@ exports.registration = (req, res) => {
 exports.createEvent = (req, res) => {
   event.create({
     name: req.body.name,
-    idVendor: req.vendor.id
+    idVendor: req.user.id
   })
     .then(newEvent => {
       if (newEvent) {
-        event.find({ idVendor: req.vendor.id })
+        event.find({ idVendor: req.user.id })
           .populate('idVendor', 'name')
           .select('name')
           .exec()
@@ -60,7 +60,7 @@ exports.createEvent = (req, res) => {
 }
 
 exports.showEvent = (req, res) => {
-  event.find({ idVendor: req.vendor.id })
+  event.find({ idVendor: req.user.id })
     .populate('idVendor', 'name')
     .select('name')
     .exec()
@@ -124,7 +124,7 @@ exports.deleteEvent = (req, res) => {
     .exec()
     .then(deleted => {
       if (deleted) {
-        event.find({ idVendor: req.vendor.id })
+        event.find({ idVendor: req.user.id })
           .populate('idVendor', 'name')
           .select('name')
           .exec()
@@ -156,7 +156,7 @@ exports.showBooking = (req, res) => {
     .populate({
       path: 'idEvent',
       select: 'name',
-      match: { idVendor: req.vendor.id },
+      match: { idVendor: req.user.id },
       populate: { path: 'idVendor', select: 'name' }
     })
     .select('-updatedAt -__v')
@@ -206,7 +206,7 @@ exports.accRejectBooking = (req, res) => {
                   .populate({
                     path: 'idEvent',
                     select: 'name',
-                    match: { idVendor: req.vendor.id },
+                    match: { idVendor: req.user.id },
                     populate: { path: 'idVendor', select: 'name' }
                   })
                   .select('-updatedAt -__v')
@@ -217,7 +217,7 @@ exports.accRejectBooking = (req, res) => {
                     })
                     return res.status(200).json({
                       success: true,
-                      message: `Show all booking list`,
+                      message: `Reject is success`,
                       data: showList
                     })
                   })
@@ -234,7 +234,7 @@ exports.accRejectBooking = (req, res) => {
                   .populate({
                     path: 'idEvent',
                     select: 'name',
-                    match: { idVendor: req.vendor.id },
+                    match: { idVendor: req.user.id },
                     populate: { path: 'idVendor', select: 'name' }
                   })
                   .select('-updatedAt -__v')
@@ -245,7 +245,7 @@ exports.accRejectBooking = (req, res) => {
                     })
                     return res.status(200).json({
                       success: true,
-                      message: `Show all booking list`,
+                      message: `Approve is success`,
                       data: showList
                     })
                   })
