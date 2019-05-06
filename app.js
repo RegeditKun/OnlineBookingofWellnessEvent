@@ -15,9 +15,9 @@ app.use(express.urlencoded({ extended: true }))
 const localDB = 'mongodb://127.0.0.1:27017/onlineBooking'
 const mongoDB = process.env.MONGO_STRINGCON || localDB
 mongoose.connect(mongoDB, {
-	useNewUrlParser: true,
-	useCreateIndex: true,
-	useFindAndModify: false
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false
 })
 mongoose.Promise = global.Promise
 const db = mongoose.connection
