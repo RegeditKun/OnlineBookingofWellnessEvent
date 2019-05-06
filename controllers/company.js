@@ -1,7 +1,6 @@
 const company = require('../models/company')
 const event = require('../models/event')
 const booking = require('../models/booking')
-const vendor = require('../models/vendor')
 const bcrypt = require('bcrypt')
 
 exports.registration = (req, res) => {
@@ -142,32 +141,6 @@ exports.showEvent = (req, res) => {
           success: true,
           message: 'Show all event',
           data: result
-        })
-      }
-    })
-    .catch(err => {
-      res.status(500).json({
-        success: false,
-        message: err.message
-      })
-    })
-}
-
-exports.showVendor = (req, res) => {
-  vendor.find({})
-    .select('-password -createdAt -updatedAt -__v -_id')
-    .exec()
-    .then(showAllVendor => {
-      if (showAllVendor.length === 0) {
-        return res.status(404).json({
-          success: false,
-          message: `Vendor not found`
-        })
-      } else {
-        return res.status(200).json({
-          success: false,
-          message: `Show all vendor`,
-          data: showAllVendor
         })
       }
     })
