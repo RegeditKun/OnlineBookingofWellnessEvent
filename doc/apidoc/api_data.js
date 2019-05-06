@@ -1,10 +1,10 @@
 define({ "api": [
   {
-    "name": "Company_Test_API",
+    "name": "Create_Booking",
     "group": "Company",
-    "type": "get",
-    "url": "/v1/api/company/test",
-    "title": "Get Test API",
+    "type": "post",
+    "url": "/v1/api/company/booking",
+    "title": "Create Booking",
     "header": {
       "fields": {
         "Header": [
@@ -13,7 +13,84 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "auth",
-            "description": "<p>Unique token</p>"
+            "description": "<p>Unique token.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Event unique ID. (Params)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "date",
+            "description": "<p>Proposed date. (Body)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "location",
+            "description": "<p>The booking event location. (Body)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 201": [
+          {
+            "group": "Success 201",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>Success status.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Event successfully created.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Only displays the same booking list as the company's name, including the new booking list.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/API/company.js",
+    "groupTitle": "Company"
+  },
+  {
+    "name": "Get_Event",
+    "group": "Company",
+    "type": "get",
+    "url": "/v1/api/company/event",
+    "title": "Get Event",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "auth",
+            "description": "<p>Unique token.</p>"
           }
         ]
       }
@@ -23,10 +100,74 @@ define({ "api": [
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "json",
+            "type": "Boolean",
             "optional": false,
-            "field": "WELCOME",
-            "description": "<p>TO COMPANY API.</p>"
+            "field": "success",
+            "description": "<p>Success status.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Show all event.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Show all Event.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/API/company.js",
+    "groupTitle": "Company"
+  },
+  {
+    "name": "Show_Booking",
+    "group": "Company",
+    "type": "get",
+    "url": "/v1/api/company/booking/",
+    "title": "Show Booking",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "auth",
+            "description": "<p>Unique token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>Success status.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Show all event.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Only displays the same booking list as the company's name.</p>"
           }
         ]
       }
@@ -248,7 +389,7 @@ define({ "api": [
   {
     "name": "Get_Booking",
     "group": "Vendor",
-    "type": "delete",
+    "type": "get",
     "url": "/v1/api/vendor/booking",
     "title": "Get Booking",
     "header": {
