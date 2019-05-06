@@ -8,7 +8,9 @@ exports.authCompany = (req, res, next) => {
       return res.status(400).json({ status: false, message: err.message })
     }
     req.company = decoded
-    next()
+    if (req.company.role === 'company') {
+      next()
+    }
   })
 }
 
@@ -19,6 +21,8 @@ exports.authVendor = (req, res, next) => {
       return res.status(400).json({ status: false, message: err.message })
     }
     req.vendor = decoded
-    next()
+    if (req.vendor.role === 'vendor') {
+      next()
+    }
   })
 }
