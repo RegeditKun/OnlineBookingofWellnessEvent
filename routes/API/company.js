@@ -5,10 +5,10 @@ const auth = require('../../middleware/auth')
 
 router.post('/registration', companyControllers.registration)
 
-router.get('/event', auth.authCompany, companyControllers.showEvent)
+router.get('/event', auth.isAuth, auth.isCompany, companyControllers.showEvent)
 
 router.route('/booking')
-  .post(auth.authCompany, companyControllers.createBooking)
-  .get(auth.authCompany, companyControllers.showBooking)
+  .post(auth.isAuth, auth.isCompany, companyControllers.createBooking)
+  .get(auth.isAuth, auth.isCompany, companyControllers.showBooking)
 
 module.exports = router

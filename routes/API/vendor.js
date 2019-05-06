@@ -6,14 +6,14 @@ const auth = require('../../middleware/auth')
 router.post('/registration', vendorControllers.registration)
 
 router.route('/event')
-  .post(auth.authVendor, vendorControllers.createEvent)
-  .get(auth.authVendor, vendorControllers.showEvent)
+  .post(auth.isAuth, auth.isVendor, vendorControllers.createEvent)
+  .get(auth.isAuth, auth.isVendor, vendorControllers.showEvent)
 
 router.route('/event/:id')
-  .put(auth.authVendor, vendorControllers.updateEvent)
-  .delete(auth.authVendor, vendorControllers.deleteEvent)
+  .put(auth.isAuth, auth.isVendor, vendorControllers.updateEvent)
+  .delete(auth.isAuth, auth.isVendor, vendorControllers.deleteEvent)
 
-router.get('/booking', auth.authVendor, vendorControllers.showBooking)
-router.put('/booking/:id', auth.authVendor, vendorControllers.accRejectBooking)
+router.get('/booking', auth.isAuth, auth.isVendor, vendorControllers.showBooking)
+router.put('/booking/:id', auth.isAuth, auth.isVendor, vendorControllers.accRejectBooking)
 
 module.exports = router
