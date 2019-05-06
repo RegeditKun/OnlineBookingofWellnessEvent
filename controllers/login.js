@@ -20,7 +20,7 @@ exports.login = (req, res) => {
               bcrypt.compare(req.body.password, companyDetail.password)
                 .then(valid => {
                   if (valid) {
-                    let dataToken = { id: companyDetail._id, name: companyDetail.name, address: companyDetail.address, role: 'company' }
+                    let dataToken = { id: companyDetail._id, name: companyDetail.name, role: 'company' }
                     let token = jwt.sign(dataToken, process.env.SECRETKEY, { expiresIn: '7d', algorithm: 'HS256' })
                     return res.status(200).json({
                       success: true,
