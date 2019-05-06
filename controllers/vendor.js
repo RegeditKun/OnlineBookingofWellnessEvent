@@ -60,7 +60,7 @@ exports.createEvent = (req, res) => {
 }
 
 exports.showEvent = (req, res) => {
-  event.find({ idVendor: req.params.vendorid })
+  event.find({ idVendor: req.vendor.id })
     .populate('idVendor', 'name')
     .select('name')
     .exec()
