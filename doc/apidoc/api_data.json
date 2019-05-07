@@ -70,7 +70,14 @@
             "description": "<p>Only displays the same booking list as the company's name, including the new booking list.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n \"success\": true,\n \"message\": \"Booking successfully created\",\n \"data\": [\n     {\n         \"date\": [\n             \"2019-07-04T00:00:00.000Z\",\n             \"2019-07-05T00:00:00.000Z\",\n             \"2019-07-06T00:00:00.000Z\"\n         ],\n         \"confirmedDate\": null,\n         \"responseDate\": null,\n         \"status\": \"Pending\",\n         \"remarks\": null,\n         \"_id\": \"5cd1173c6b9f1c19af248bc9\",\n         \"idCompany\": \"5cd0ae0f493da82b4ae5786b\",\n         \"idEvent\": {\n             \"_id\": \"5cd10f639b1207128b094af6\",\n             \"name\": \"sample\",\n             \"idVendor\": {\n                 \"_id\": \"5cd0ae72493da82b4ae5786d\",\n                 \"name\": \"Havana Medica\"\n             }\n         },\n         \"location\": \"Jakarta\"\n     }\n ]\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "routes/apidoc.js",
@@ -120,7 +127,14 @@
             "description": "<p>Show all Event.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n  \"success\": true,\n  \"message\": \"Show all event\",\n  \"data\": [\n      {\n          \"name\": \"Medical Check-Up\",\n          \"vendors\": [\n              {\n                  \"idEvent\": \"5cd0af21493da82b4ae5786e\",\n                  \"idVendor\": {\n                      \"_id\": \"5cd0ae72493da82b4ae5786d\",\n                      \"name\": \"Havana Medica\"\n                  }\n              },\n              {\n                  \"idEvent\": \"5cd0af45493da82b4ae57870\",\n                  \"idVendor\": {\n                      \"_id\": \"5cd0ae62493da82b4ae5786c\",\n                      \"name\": \"Heroic Health\"\n                  }\n              }\n          ]\n      },\n      {\n          \"name\": \"sample\",\n          \"vendors\": [\n              {\n                  \"idEvent\": \"5cd10f639b1207128b094af6\",\n                  \"idVendor\": {\n                      \"_id\": \"5cd0ae72493da82b4ae5786d\",\n                      \"name\": \"Havana Medica\"\n                  }\n              }\n          ]\n      }\n  ]\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "routes/apidoc.js",
@@ -170,7 +184,14 @@
             "description": "<p>Only displays the same booking list as the company's name.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n \"success\": true,\n \"message\": \"Show booking list\",\n \"data\": [\n     {\n         \"date\": [\n             \"2019-07-04T00:00:00.000Z\",\n             \"2019-07-05T00:00:00.000Z\",\n             \"2019-07-06T00:00:00.000Z\"\n         ],\n         \"confirmedDate\": null,\n         \"responseDate\": null,\n         \"status\": \"Pending\",\n         \"remarks\": null,\n         \"_id\": \"5cd1173c6b9f1c19af248bc9\",\n         \"idCompany\": \"5cd0ae0f493da82b4ae5786b\",\n         \"idEvent\": {\n             \"_id\": \"5cd10f639b1207128b094af6\",\n             \"name\": \"sample sample\",\n             \"idVendor\": {\n                 \"_id\": \"5cd0ae72493da82b4ae5786d\",\n                 \"name\": \"Havana Medica\"\n             }\n         },\n         \"location\": \"Jakarta\"\n     }\n ]\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "routes/apidoc.js",
@@ -230,8 +251,13 @@
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response for Vendor:",
           "content": "{\n \"success\": true,\n \"message\": \"Vendor found!\",\n \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjZDBhZTcyNDkzZGE4MmI0YWU1Nzg2ZCIsIm5hbWUiOiJIYXZhbmEgTWVkaWNhIiwicm9sZSI6InZlbmRvciIsImlhdCI6MTU1NzIwNDI4MSwiZXhwIjoxNTU3ODA5MDgxfQ.fio_KwORMHPYWqMlIX8x8OxWwo71CBzMNbmf7SDIHK0\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Success-Response for Company:",
+          "content": "{\n \"success\": true,\n \"message\": \"Company found!\",\n \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjZDBhZTBmNDkzZGE4MmI0YWU1Nzg2YiIsIm5hbWUiOiJHbGludHMgQWNhZGVteSIsInJvbGUiOiJjb21wYW55IiwiaWF0IjoxNTU3MjA2Mzg5LCJleHAiOjE1NTc4MTExODl9.wt1QyDZmuL2p0M52FmUZUn8Alqm3it5N3TPgcZCfVWk\"\n}",
           "type": "json"
         }
       ]
@@ -318,7 +344,19 @@
             "description": "<p>Display booking list with list that has been approved/rejected.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Success-Response for Approved Booking List:",
+          "content": "{\n \"success\": true,\n \"message\": \"Approve is success\",\n \"data\": [\n     {\n         \"date\": [\n             \"2019-07-04T00:00:00.000Z\",\n             \"2019-07-05T00:00:00.000Z\",\n             \"2019-07-06T00:00:00.000Z\"\n         ],\n         \"confirmedDate\": \"2019-07-05T11:00:00.000Z\",\n         \"responseDate\": \"2019-05-06T22:21:06.953Z\",\n         \"status\": \"Approved\",\n         \"remarks\": null,\n         \"_id\": \"5cd1173c6b9f1c19af248bc9\",\n         \"idCompany\": {\n             \"_id\": \"5cd0ae0f493da82b4ae5786b\",\n             \"name\": \"Glints Academy\"\n         },\n         \"idEvent\": {\n             \"_id\": \"5cd10f639b1207128b094af6\",\n             \"name\": \"sample\",\n             \"idVendor\": {\n                 \"_id\": \"5cd0ae72493da82b4ae5786d\",\n                 \"name\": \"Havana Medica\"\n             }\n         },\n         \"location\": \"Jakarta\",\n         \"createdAt\": \"2019-05-07T05:27:24.144Z\"\n     }\n ]\n}",
+          "type": "json"
+        },
+        {
+          "title": "Success-Response for Rejected Booking List:",
+          "content": "{\n \"success\": true,\n \"message\": \"Reject is success\",\n \"data\": [\n     {\n         \"date\": [\n             \"2019-07-04T00:00:00.000Z\",\n             \"2019-07-05T00:00:00.000Z\",\n             \"2019-07-06T00:00:00.000Z\"\n         ],\n         \"confirmedDate\": null,\n         \"responseDate\": \"2019-05-06T22:21:06.953Z\",\n         \"status\": \"Rejected\",\n         \"remarks\": \"The location is too far\",\n         \"_id\": \"5cd1173c6b9f1c19af248bc9\",\n         \"idCompany\": {\n             \"_id\": \"5cd0ae0f493da82b4ae5786b\",\n             \"name\": \"Glints Academy\"\n         },\n         \"idEvent\": {\n             \"_id\": \"5cd10f639b1207128b094af6\",\n             \"name\": \"sample\",\n             \"idVendor\": {\n                 \"_id\": \"5cd0ae72493da82b4ae5786d\",\n                 \"name\": \"Havana Medica\"\n             }\n         },\n         \"location\": \"Jakarta\",\n         \"createdAt\": \"2019-05-07T05:27:24.144Z\"\n     }\n ]\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "routes/apidoc.js",
@@ -385,7 +423,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n \"success\": true,\n \"message\": \"Event successfully created\",\n \"data\": [\n     {\n         \"_id\": \"5cd0af21493da82b4ae5786e\",\n         \"name\": \"Medical Check-Up\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd0af31493da82b4ae5786f\",\n         \"name\": \"Healthy Life Seminar\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd0b571493da82b4ae57878\",\n         \"name\": \"Talks with Doctor\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd10f639b1207128b094af6\",\n         \"name\": \"Sample\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     }\n ]\n}",
+          "content": "{\n \"success\": true,\n \"message\": \"Event successfully created\",\n \"data\": [\n     {\n         \"_id\": \"5cd0af21493da82b4ae5786e\",\n         \"name\": \"Medical Check-Up\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd10f639b1207128b094af6\",\n         \"name\": \"Sample\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     }\n ]\n}",
           "type": "json"
         }
       ]
@@ -451,7 +489,14 @@
             "description": "<p>Only displays the same event list as the vendor's name, Deleted event will not display.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n \"success\": true,\n \"message\": \"Event has been deleted\",\n \"data\": [\n     {\n         \"_id\": \"5cd0af21493da82b4ae5786e\",\n         \"name\": \"Medical Check-Up\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     }\n ]\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "routes/apidoc.js",
@@ -501,7 +546,14 @@
             "description": "<p>Only displays the same booking list as the vendor's name.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n \"success\": true,\n \"message\": \"Showing booking list\",\n \"data\": [\n     {\n         \"date\": [\n             \"2019-07-04T00:00:00.000Z\",\n             \"2019-07-05T00:00:00.000Z\",\n             \"2019-07-06T00:00:00.000Z\"\n         ],\n         \"confirmedDate\": null,\n         \"responseDate\": null,\n         \"status\": \"Pending\",\n         \"remarks\": null,\n         \"_id\": \"5cd1173c6b9f1c19af248bc9\",\n         \"idCompany\": {\n             \"_id\": \"5cd0ae0f493da82b4ae5786b\",\n             \"name\": \"Glints Academy\"\n         },\n         \"idEvent\": {\n             \"_id\": \"5cd10f639b1207128b094af6\",\n             \"name\": \"sample\",\n             \"idVendor\": {\n                 \"_id\": \"5cd0ae72493da82b4ae5786d\",\n                 \"name\": \"Havana Medica\"\n             }\n         },\n         \"location\": \"Jakarta\",\n         \"createdAt\": \"2019-05-07T05:27:24.144Z\"\n     }\n ]\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "routes/apidoc.js",
@@ -555,7 +607,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n \"success\": true,\n \"message\": \"Show your event\",\n \"data\": [\n     {\n         \"_id\": \"5cd0af21493da82b4ae5786e\",\n         \"name\": \"Medical Check-Up\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd0af31493da82b4ae5786f\",\n         \"name\": \"Healthy Life Seminar\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd0b571493da82b4ae57878\",\n         \"name\": \"Talks with Doctor\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd10f639b1207128b094af6\",\n         \"name\": \"Sample\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     }\n ]\n}",
+          "content": "{\n \"success\": true,\n \"message\": \"Show your event\",\n \"data\": [\n     {\n         \"_id\": \"5cd0af21493da82b4ae5786e\",\n         \"name\": \"Medical Check-Up\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd10f639b1207128b094af6\",\n         \"name\": \"Sample\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     }\n ]\n}",
           "type": "json"
         }
       ]
@@ -625,7 +677,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n \"success\": true,\n \"message\": \"Show your event\",\n \"data\": [\n     {\n         \"_id\": \"5cd0af21493da82b4ae5786e\",\n         \"name\": \"Medical Check-Up\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd0af31493da82b4ae5786f\",\n         \"name\": \"Healthy Life Seminar\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd0b571493da82b4ae57878\",\n         \"name\": \"Talks with Doctor\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd10f639b1207128b094af6\",\n         \"name\": \"sample sample\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     }\n ]\n}",
+          "content": "{\n \"success\": true,\n \"message\": \"Event has been updated\",\n \"data\": [\n     {\n         \"_id\": \"5cd0af21493da82b4ae5786e\",\n         \"name\": \"Medical Check-Up\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd10f639b1207128b094af6\",\n         \"name\": \"sample update\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     }\n ]\n}",
           "type": "json"
         }
       ]
