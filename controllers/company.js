@@ -83,7 +83,7 @@ exports.showBooking = (req, res) => {
     .populate({
       path: 'idEvent idCompany', select: 'name', populate: { path: 'idVendor', select: 'name' }
     })
-    .select('-createdAt -updatedAt -__v -_id')
+    .select('-updatedAt -__v')
     .exec()
     .then(booked => {
       if (booked.length === 0) {

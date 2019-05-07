@@ -97,11 +97,17 @@ exports.updateEvent = (req, res) => {
     .exec()
     .then(updateEvent => {
       if (updateEvent) {
-        return res.status(200).json({
-          success: true,
-          message: 'Event Has Been Updated',
-          data: updateEvent
-        })
+        event.find({ idVendor: req.user.id })
+          .populate('idVendor', 'name')
+          .select('name')
+          .exec()
+          .then(allEvent => {
+            return res.status(201).json({
+              success: true,
+              message: 'Event has been updated',
+              data: allEvent
+            })
+          })
       } else {
         res.status(404).json({
           success: false,
