@@ -177,6 +177,70 @@ define({ "api": [
     "groupTitle": "Company"
   },
   {
+    "name": "Login",
+    "group": "Login",
+    "type": "post",
+    "url": "/v1/api/vendor/event",
+    "title": "Login",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email account. (Body)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>password account. (body)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>Success status.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Vendor or Company Found.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>token for authorization.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n \"success\": true,\n \"message\": \"Vendor found!\",\n \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjZDBhZTcyNDkzZGE4MmI0YWU1Nzg2ZCIsIm5hbWUiOiJIYXZhbmEgTWVkaWNhIiwicm9sZSI6InZlbmRvciIsImlhdCI6MTU1NzIwNDI4MSwiZXhwIjoxNTU3ODA5MDgxfQ.fio_KwORMHPYWqMlIX8x8OxWwo71CBzMNbmf7SDIHK0\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/apidoc.js",
+    "groupTitle": "Login"
+  },
+  {
     "name": "Accept_Reject_Booking",
     "group": "Vendor",
     "type": "put",
@@ -237,7 +301,7 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "success",
-            "description": "<p>Success status.aaaaaaaaaa</p>"
+            "description": "<p>Success status.</p>"
           },
           {
             "group": "Success 200",
@@ -314,10 +378,17 @@ define({ "api": [
             "type": "Object[]",
             "optional": false,
             "field": "data",
-            "description": "<p>Show all Event vendor, including new event.</p>"
+            "description": "<p>Only displays the same booking list as the vendor's name, including new event.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n \"success\": true,\n \"message\": \"Event successfully created\",\n \"data\": [\n     {\n         \"_id\": \"5cd0af21493da82b4ae5786e\",\n         \"name\": \"Medical Check-Up\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd0af31493da82b4ae5786f\",\n         \"name\": \"Healthy Life Seminar\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd0b571493da82b4ae57878\",\n         \"name\": \"Talks with Doctor\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd10f639b1207128b094af6\",\n         \"name\": \"Sample\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     }\n ]\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "routes/apidoc.js",
@@ -377,7 +448,7 @@ define({ "api": [
             "type": "Object[]",
             "optional": false,
             "field": "data",
-            "description": "<p>Show all Event vendor that is not deleted.</p>"
+            "description": "<p>Only displays the same event list as the vendor's name, Deleted event will not display.</p>"
           }
         ]
       }
@@ -480,7 +551,14 @@ define({ "api": [
             "description": "<p>Only displays the same event list as the vendor's name.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n \"success\": true,\n \"message\": \"Show your event\",\n \"data\": [\n     {\n         \"_id\": \"5cd0af21493da82b4ae5786e\",\n         \"name\": \"Medical Check-Up\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd0af31493da82b4ae5786f\",\n         \"name\": \"Healthy Life Seminar\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd0b571493da82b4ae57878\",\n         \"name\": \"Talks with Doctor\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd10f639b1207128b094af6\",\n         \"name\": \"Sample\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     }\n ]\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "routes/apidoc.js",
@@ -540,10 +618,17 @@ define({ "api": [
             "type": "Object[]",
             "optional": false,
             "field": "data",
-            "description": "<p>Show event vendor that has just been update.</p>"
+            "description": "<p>Only displays the same event list as the vendor's name, including event that has been updated.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n \"success\": true,\n \"message\": \"Show your event\",\n \"data\": [\n     {\n         \"_id\": \"5cd0af21493da82b4ae5786e\",\n         \"name\": \"Medical Check-Up\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd0af31493da82b4ae5786f\",\n         \"name\": \"Healthy Life Seminar\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd0b571493da82b4ae57878\",\n         \"name\": \"Talks with Doctor\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     },\n     {\n         \"_id\": \"5cd10f639b1207128b094af6\",\n         \"name\": \"sample sample\",\n         \"idVendor\": {\n             \"_id\": \"5cd0ae72493da82b4ae5786d\",\n             \"name\": \"Havana Medica\"\n         }\n     }\n ]\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "routes/apidoc.js",

@@ -1,4 +1,20 @@
 /**
+ * @apiName Login
+ * @apiGroup Login
+ * @api {post} /v1/api/vendor/event Login
+ * @apiParam {String} email email account. (Body)
+ * @apiParam {String} password password account. (body)
+ * @apiSuccess {Boolean} success Success status.
+ * @apiSuccess {String} message Vendor or Company Found.
+ * @apiSuccess {String} token token for authorization.
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ *  "success": true,
+ *  "message": "Vendor found!",
+ *  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjZDBhZTcyNDkzZGE4MmI0YWU1Nzg2ZCIsIm5hbWUiOiJIYXZhbmEgTWVkaWNhIiwicm9sZSI6InZlbmRvciIsImlhdCI6MTU1NzIwNDI4MSwiZXhwIjoxNTU3ODA5MDgxfQ.fio_KwORMHPYWqMlIX8x8OxWwo71CBzMNbmf7SDIHK0"
+ * }
+ */
+/**
  * @apiName Create Event
  * @apiGroup Vendor
  * @api {post} /v1/api/vendor/event Create Event
@@ -6,7 +22,46 @@
  * @apiParam {String} name Name of the event. (Body)
  * @apiSuccess (Success 201) {Boolean} success Success status.
  * @apiSuccess (Success 201) {String} message Event successfully created.
- * @apiSuccess (Success 201) {Object[]} data Show all Event vendor, including new event.
+ * @apiSuccess (Success 201) {Object[]} data Only displays the same booking list as the vendor's name, including new event.
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ *  "success": true,
+ *  "message": "Event successfully created",
+ *  "data": [
+ *      {
+ *          "_id": "5cd0af21493da82b4ae5786e",
+ *          "name": "Medical Check-Up",
+ *          "idVendor": {
+ *              "_id": "5cd0ae72493da82b4ae5786d",
+ *              "name": "Havana Medica"
+ *          }
+ *      },
+ *      {
+ *          "_id": "5cd0af31493da82b4ae5786f",
+ *          "name": "Healthy Life Seminar",
+ *          "idVendor": {
+ *              "_id": "5cd0ae72493da82b4ae5786d",
+ *              "name": "Havana Medica"
+ *          }
+ *      },
+ *      {
+ *          "_id": "5cd0b571493da82b4ae57878",
+ *          "name": "Talks with Doctor",
+ *          "idVendor": {
+ *              "_id": "5cd0ae72493da82b4ae5786d",
+ *              "name": "Havana Medica"
+ *          }
+ *      },
+ *      {
+ *          "_id": "5cd10f639b1207128b094af6",
+ *          "name": "Sample",
+ *          "idVendor": {
+ *              "_id": "5cd0ae72493da82b4ae5786d",
+ *              "name": "Havana Medica"
+ *          }
+ *      }
+ *  ]
+ * }
  */
 /**
  * @apiName Get Event
@@ -16,6 +71,45 @@
  * @apiSuccess {Boolean} success Success status.
  * @apiSuccess {String} message Showing your event.
  * @apiSuccess {Object[]} data Only displays the same event list as the vendor's name.
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ *  "success": true,
+ *  "message": "Show your event",
+ *  "data": [
+ *      {
+ *          "_id": "5cd0af21493da82b4ae5786e",
+ *          "name": "Medical Check-Up",
+ *          "idVendor": {
+ *              "_id": "5cd0ae72493da82b4ae5786d",
+ *              "name": "Havana Medica"
+ *          }
+ *      },
+ *      {
+ *          "_id": "5cd0af31493da82b4ae5786f",
+ *          "name": "Healthy Life Seminar",
+ *          "idVendor": {
+ *              "_id": "5cd0ae72493da82b4ae5786d",
+ *              "name": "Havana Medica"
+ *          }
+ *      },
+ *      {
+ *          "_id": "5cd0b571493da82b4ae57878",
+ *          "name": "Talks with Doctor",
+ *          "idVendor": {
+ *              "_id": "5cd0ae72493da82b4ae5786d",
+ *              "name": "Havana Medica"
+ *          }
+ *      },
+ *      {
+ *          "_id": "5cd10f639b1207128b094af6",
+ *          "name": "Sample",
+ *          "idVendor": {
+ *              "_id": "5cd0ae72493da82b4ae5786d",
+ *              "name": "Havana Medica"
+ *          }
+ *      }
+ *  ]
+ * }
  */
 /**
  * @apiName Update Event
@@ -25,7 +119,46 @@
  * @apiHeader {String} auth Unique token.
  * @apiSuccess {Boolean} success Success status.
  * @apiSuccess {String} message Event has been updated.
- * @apiSuccess {Object[]} data Show event vendor that has just been update.
+ * @apiSuccess {Object[]} data Only displays the same event list as the vendor's name, including event that has been updated.
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ *  "success": true,
+ *  "message": "Show your event",
+ *  "data": [
+ *      {
+ *          "_id": "5cd0af21493da82b4ae5786e",
+ *          "name": "Medical Check-Up",
+ *          "idVendor": {
+ *              "_id": "5cd0ae72493da82b4ae5786d",
+ *              "name": "Havana Medica"
+ *          }
+ *      },
+ *      {
+ *          "_id": "5cd0af31493da82b4ae5786f",
+ *          "name": "Healthy Life Seminar",
+ *          "idVendor": {
+ *              "_id": "5cd0ae72493da82b4ae5786d",
+ *              "name": "Havana Medica"
+ *          }
+ *      },
+ *      {
+ *          "_id": "5cd0b571493da82b4ae57878",
+ *          "name": "Talks with Doctor",
+ *          "idVendor": {
+ *              "_id": "5cd0ae72493da82b4ae5786d",
+ *              "name": "Havana Medica"
+ *          }
+ *      },
+ *      {
+ *          "_id": "5cd10f639b1207128b094af6",
+ *          "name": "sample sample",
+ *          "idVendor": {
+ *              "_id": "5cd0ae72493da82b4ae5786d",
+ *              "name": "Havana Medica"
+ *          }
+ *      }
+ *  ]
+ * }
  */
 /**
  * @apiName Delete Event
@@ -35,7 +168,7 @@
  * @apiHeader {String} auth Unique token.
  * @apiSuccess {Boolean} success Success status.
  * @apiSuccess {String} message Event has been deleted.
- * @apiSuccess {Object[]} data Show all Event vendor that is not deleted.
+ * @apiSuccess {Object[]} data Only displays the same event list as the vendor's name, Deleted event will not display.
  */
 /**
  * @apiName Get Booking
