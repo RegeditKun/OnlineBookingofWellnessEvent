@@ -34,6 +34,13 @@ npm run start
 or
 npm run dev
 ```
+## Database
+
+* [Vendor](https://res.cloudinary.com/palsuasli/image/upload/v1557212500/Project/vendors.png)
+* [Company](https://res.cloudinary.com/palsuasli/image/upload/v1557212498/Project/companies.png)
+* [Booking](https://res.cloudinary.com/palsuasli/image/upload/v1557212501/Project/bookings.png)
+* [Event](https://res.cloudinary.com/palsuasli/image/upload/v1557212500/Project/events.pngs)
+
 ## Documentation
 
 You can check the documentation in here:
