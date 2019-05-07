@@ -51,7 +51,7 @@ exports.createBooking = (req, res) => {
                 .then(allBooking => {
                   return res.status(201).json({
                     success: true,
-                    message: 'Event successfully created',
+                    message: 'Booking successfully created',
                     data: allBooking
                   })
                 })
